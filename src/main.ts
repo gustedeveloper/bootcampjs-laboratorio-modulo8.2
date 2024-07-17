@@ -26,3 +26,13 @@ const activarProtocoloUrgencia : boolean = pacientes.some(
 );
 
 console.log(`Protocolo urgencia activado: ${activarProtocoloUrgencia}`); 
+
+// Apartado 3: reasignar pacientes de Pediatria a Médico de familia
+
+const reasignaPacientesAMedicoFamilia: Pacientes[] = pacientesAsignadosAPediatria.map(
+  (paciente: Pacientes): Pacientes => ({
+    ...paciente,
+    especialidad: "Medico de familia"
+  }));
+
+console.log("Lista de pacientes de Pediatria reasignados a Médico de Familia: ", reasignaPacientesAMedicoFamilia);
