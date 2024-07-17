@@ -44,3 +44,36 @@ const hayPacientesDePediatria: boolean = pacientes.some(
 );
   
   console.log(`¿Hay pacientes de pedriatría? ${hayPacientesDePediatria}`);
+
+// Apartado 5:  calcular el número total de pacientes que están asignados a la especialidad de Medico de familia, y lo que están asignados a Pediatría y a Cardiología
+  
+interface NumeroPacientesPorEspecialidad {
+  medicoDeFamilia: number;
+  pediatria: number;
+  cardiologia: number;
+}
+
+const cuentaPacientesPorEspecialidad = (
+  pacientes: Pacientes[]
+): NumeroPacientesPorEspecialidad => {
+
+  let numeroPacientesPorEspecialidad : NumeroPacientesPorEspecialidad = {
+      medicoDeFamilia: 0,
+      pediatria: 0,
+      cardiologia: 0
+      }
+
+  pacientes.forEach((paciente) => {
+    if (paciente.especialidad === "Medico de familia") {
+      numeroPacientesPorEspecialidad.medicoDeFamilia++;
+    } else if (paciente.especialidad === "Pediatra") {
+      numeroPacientesPorEspecialidad.pediatria++;
+    } else if (paciente.especialidad === "Cardiólogo") {
+      numeroPacientesPorEspecialidad.cardiologia++;
+    }
+  })
+
+    return numeroPacientesPorEspecialidad;
+}
+
+console.log("Total de pacientes por especialidad: ", cuentaPacientesPorEspecialidad(pacientes));
